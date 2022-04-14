@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FName LName | Personal Website</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Plus+Jakarta+Sans:wght@800&family=Raleway:ital,wght@0,100;0,400;0,500;0,700;0,800;0,900;1,200;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css" integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <!-- Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c84b46effb.js" crossorigin="anonymous"></script>
+    
+    <style>
+    
+    /*****************
+    Back to top button
+    ******************/
+    #backToTop{
+        background-color: #555;
+        width:40px;
+        height:40px;
+        display: inline-block;
+        border-radius: 50%;
+        bottom: 30px;
+        right: 30px;
+        position:fixed;
+        text-align: center;
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        text-decoration: none;
+    }
+
+    #backToTop:hover{
+        cursor: pointer;
+        background-color: #edbb00;
+    }
+
+    #backToTop:focus{
+        outline: none;
+    }
+
+    #backToTop::after{
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight:normal;
+        font-style: normal;
+        font-size: 1.5em;
+        line-height: 40px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #backToTop.show{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /*************
+    Navigation Bar
+    **************/
+
+    .navbar {
+        background-color: transparent !important;
+    }
+
+    .nav-link {
+        color: #FFF !important;
+    }
+
+    /**************
+    Side Navigation
+    ***************/
+    .side-nav {
+        display:inline;
+        list-style-type: none;
+        float: right;
+        align-items: center;
+        position: absolute;
+        top: 45%;
+        right: 5%;
+        position: sticky;
+        z-index: 999;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+        margin: 0px;
+        padding: 0px;
+
+    }
+    .side-nav li {
+        color: #FFF;
+        margin-bottom: 5px;
+        padding: 0px;
+
+    }
+
+    .link {
+        color: #FFF;
+        padding: 0px;
+
+    }
+
+    .bi-circle, .bi-circle-fill {
+        font-size: 12px;
+        /* background-color: #FBFF00; */
+
+    }
+
+    .link:hover {
+        color: #FFF;
+        fill: #FFF;
+        font-size: 14px;
+        /* background-color: #FBFF00; */
+        padding: 0px;
+        content: "\f287";
+        text-shadow: 0px 1px 2px #FBFF00;
+        
+    }
+
+
+    /**********************
+    Video Parallax Section
+    **********************/
+
+    .ParallaxContent {
+        background: none repeat scroll 0 0 black;
+        padding: 42px 0;
+        color:#FFF;
+        height: 100px;
+    } 
+
+    .ParallaxContent h3{
+        color:black;	
+        text-align:center;
+    }
+
+    .color-change {
+        animation: color_change 2s infinite alternate-reverse;
+    }
+    
+    @keyframes color_change {
+        00% { color: #006c82; }
+        50% { color: #FBFF00; }
+        100% { color: #FFF; }
+    }
+
+    .ParallaxVideo{ 
+        min-height: 1000px;
+    }
+
+    .ParallaxVideo video{ 
+        min-height: 100%;
+        min-width: 100%;
+        position: fixed;
+        top:0;
+        z-index: -9999;
+    }
+
+    .tagline {
+        color:#FFF;	
+        font-size: 100px;
+        font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 700;
+        text-align: center;
+        padding: 15% 15% 0% 15%;  
+    }
+
+    .role {
+        color:#FFF;
+        text-align: center;	
+        font-size: 24px;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 300;
+    }
+
+    .btn-grp-1 {
+        margin-top:120px;
+        padding: 10px;
+    }
+
+    .btn {
+        height: 48px !important;
+    }
+
+    .btn-skills {
+        border: 1px solid #FBFF00;
+        color:#FFF;
+        font-size:15px !important;
+        padding: 12px 32px;
+    }
+
+    .btn-skills:hover {
+        border: 1px solid #585906;
+        color:#FFF;
+        background-color: #585906;
+        transition: all .4s ease;
+        -webkit-transition: all .4s ease;
+    }
+
+    .btn-contact {
+        background-color: #FBFF00;
+        color:black;
+        font-size:26px !important;
+        padding: 4px 32px;
+        box-shadow: 0 1px 3px 0 rgba(46, 46, 46, 0.8), 0 6px 20px 0 rgba(46, 46, 46, 0.8);
+
+    }
+
+    .btn-contact:hover {
+        background-color: #b0b307;
+        color:#fff;
+        transition: all .4s ease;
+        -webkit-transition: all .4s ease;
+    }
+
+    .button {
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        font-family: 'Raleway', sans-serif !important;
+        border-radius: 0 !important;
+    }
+
+    .chevron {
+        border: 3px solid #FFF;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-top: 100px;
+    }
+
+    .chevron:hover {
+        border: 3px solid #555;
+        color: #FFF;
+        background-color: #555;
+    }
+
+    .bi-chevron-down {
+        font-size: 22px;
+        font-weight: 500;
+        color: #FFF;
+    }
+
+    .bi-chevron-down:hover {
+        font-size: 24px;
+        font-weight: 500;
+        color: #FFF;
+    }
+
+    /**************
+    Profile Section
+    ***************/
+    .row {
+        --bs-gutter-x: 0rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * var(--bs-gutter-y));
+        margin-right: calc(-.5 * var(--bs-gutter-x));
+        margin-left: calc(-.5 * var(--bs-gutter-x));
+    }
+
+    .row-profile {
+        width: 100%; 
+        color: #FFF;
+    }
+
+    #profile-picture {
+        width: 100%;
+        height: 800px;
+        object-fit: cover;
+    }
+
+    .col-right {
+        padding: 70px 250px 0px 70px; /*top right bottom left*/
+    }
+
+    .about-me-div {
+        text-transform: uppercase;
+    }
+    
+    .about-me-title {
+        font-size: 18px;
+    }
+
+    .name {
+        font-size: 34px;
+        font-weight: 900;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .highlight {
+       color: #FBFF00;
+    }
+
+    /********************
+    Video Profile Section
+    ********************/
+
+    .video-profile, .video-reel{ 
+        width: 100%;
+        background-color: #222222;
+        font-family: 'Raleway', sans-serif;
+        color: #FFF;
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+
+    .video-profile img, .video-reel img{ 
+        height: 650px;
+        width: 100%;
+        object-fit: cover;
+        z-index: -10;
+    }
+
+    .img-btn {
+        width: 100%;
+        cursor: pointer;
+        opacity:0.6;
+        filter: alpha(opacity=1);
+        border-width: 0px;
+        border-color: transparent;
+        border-style: none;
+        padding: 0px 0px;
+    }
+
+    .video-profile-name {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 58px;
+        font-weight: 900;
+        letter-spacing: 12px;
+    }
+
+    .btn-img {
+        position: absolute;
+        width: 100%;
+        height: 650px;
+
+    }
+
+    .btn-white {
+        position: absolute;
+        top: 60%;
+        left: 45%;
+        font-size: 20px;
+        color: #FFF;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .btn-white:hover {
+        position: absolute;
+        top: 60%;
+        left: 45%;
+        font-size: 22px;
+        color: rgb(209, 209, 209);
+        font-weight: 500;
+    }
+
+    .underline-txt {
+        border-bottom: 2px solid rgb(255, 255, 255);
+    }
+
+    .underline-txt:hover {
+        border-bottom: 2px solid rgb(209, 209, 209);
+    }
+
+    .video-profile-play-btn {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+    }
+
+    .btn-primary {
+        position: absolute;
+        top: 90%;
+        left: 50%;
+    }
+
+    .modal-content {
+        background-color: black;
+    }
+
+    .modal-body video {
+        width: 50%;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    /*************
+    Skills Section
+    **************/
+    .skills-section{ 
+        width: 100%;
+        background-color: #222222;
+        font-family: 'Raleway', sans-serif;
+        position: relative;
+        text-align: center;
+    }
+
+    .skills-section img{ 
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        opacity:0.3;
+        filter: alpha(opacity=1);
+        z-index: -10;
+    }
+
+    .skills-title {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 75px;
+        font-weight: 900;
+        letter-spacing: 12px;
+        color: #FBFF00;
+    }
+
+    .skills-desc {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0px;
+        color: #FFF;
+    }
+
+    .gray-bg {
+        background-color: #222222
+    }
+
+    .yellow-bg {
+        background-color: #FBFF00;
+        color: black;
+    }
+
+    .skills-set {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0px;
+        color: #FFF;
+        width: 100%;
+        padding: 10%;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .col-4 {
+        text-align: center;
+    }
+
+    .skill-number {
+        font-family: 'Plus Jakarta Sans', sans-serif;    
+        font-size: 120px;
+        font-weight: 800;
+        color: #B0B307;
+        position: relative; 
+        margin: 0 auto; 
+        text-align: center;
+    }
+
+    .skill-text {
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        position: absolute;
+        width: 100%;
+        color: #FFF;
+        top: 50%;
+        bottom: 50%;
+        opacity: 1;
+        padding-left: 25%;
+        padding-right: 25%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 20px;
+    }
+
+    .btn-sample-works {
+        position: absolute;
+        top:78%;
+        left: 44%;
+        color: white;
+        border:2px solid #B0B307;
+        padding: 10px 30px;
+        border-radius: 4px 4px !important;
+    }
+
+    .btn-sample-works:hover {
+        background-color: #B0B307;
+        color: white;
+        transition: all .4s ease;
+        -webkit-transition: all .4s ease;
+    }
+
+    
+    /*******************
+    Sample Works Section
+    *******************/
+
+    .sample-works-section {
+        background-attachment:fixed; 
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 800px;
+        color: #b97f6d;
+        font-family: 'Poppins', sans-serif;
+        font-size: 17px;
+        text-align: center;
+        position: relative;
+    }
+
+    .drive-link {
+        min-height: 800px;
+    }
+
+    .check {
+        text-align:center;
+        font-size: 45px;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 0% 5%;
+        letter-spacing: 1px;
+        line-height: 1em;
+    }
+
+    .drive-text {
+        color:#FFF;
+        font-size: 24px;
+        padding: 5% 15%;
+        font-style: italic;
+        line-height: 1.25em;
+        font-family: 'Raleway', sans-serif;
+    }
+    
+    .btn-view-more {
+        background-color: #FBFF00;
+        color:black;
+        font-size:22px !important;
+        padding: 8px 35px;
+        font-weight: 700;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+    }
+
+    .btn-view-more:hover {
+        background-color: #b0b307;
+        color:#fff;
+        transition: all .4s ease;
+        -webkit-transition: all .4s ease;
+    }
+
+
+    
+    /***************
+    Contact Section
+    ****************/
+
+    .contact-section {
+        background: none repeat scroll 0 0 #444444;
+        padding: 42px 0;
+        text-align:center;
+        height: 615px;
+    } 
+    
+    .contact {
+        text-align:center;
+        font-size: 45px;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 0% 30%;
+        letter-spacing: 1px;
+        line-height: 1.4em;
+    }
+
+    .contact-info {
+        text-align:center;
+        font-size: 24px;
+        color: #FFF;
+        font-weight: normal;
+        line-height: 22px;
+    }
+
+    .via {
+        font-weight: 500;
+    }
+
+    .rate {
+        font-size: 24px;
+        font-style: italic;
+    }
+
+    /***************
+    Footer  Section
+    ****************/
+
+    .footer-section {
+        background-color: #FBFF00;
+        height: 100px;
+        padding-top: 40px;
+        justify-content: center;
+	
+    } 
+
+    .footer-section span{
+        color:black;	
+        text-align:center;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    </style>
+</head>
+<body>
+    <a id='backToTop'></a> 
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">TITLE</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#ParallaxVideo">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#row-profile">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills-section">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact-section">Contact</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <ul class="side-nav">
+        <li><a href="#ParallaxVideo" class="link"></a></li>
+        <li><a href="#row-profile" class="link"></a></li>
+        <li><a href="#skills-section" class="link"></a></li>
+        <li><a href="#contact-section" class="link"></a></li>
+    </ul>
+
+
+    <div class="ParallaxVideo" id="ParallaxVideo">
+        <video autoplay muted loop>
+            <source src="extensions/videos/vid1.mp4" type="video/mp4">
+            <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            <source src="http://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+        </video>
+
+        <p class="align-middle lh-1 tagline"> I'm the  <span class="fw-bold highlight"><u>actual</u> </span> creative and media editor that you're looking for.</p>
+
+        <p class="align-middle role mt-5 fst-italic"> Penn Badgley - A <span style="font-weight: 500;">Professional Creative</span> Editor</p>
+
+        <center>
+            <div class="btn-grp-1">
+                <a href="#" class=" btn button btn-skills me-1 wow animate__animated animate__backInUp" data-wow-duration="1s" data-wow-delay="0s">VIEW SKILLS</a>
+                <a href="#" class="btn button btn-contact wow animate__animated animate__backInUp" data-wow-duration="1s" data-wow-delay="0s">CONTACT ME</a>
+            </div>
+
+            <a href="" class="get-btn">
+                <div class="chevron rounded-circle wow animate__animated animate__zoomIn" data-wow-duration="1s" data-wow-delay="1.2s"><i class="bi bi-chevron-down fw-bold"></i></div> 
+            </a> 
+        </center>
+    </div>
+   
+    
+    <div class="ParallaxContent">
+        <h3 style="font-size: 20px; color: #FFF;">I'm so excited to <span class="fw-bold color-change"> <u>work with you.</u></span></h3>
+    </div>
+
+    <div class="row row-profile" id="row-profile">
+        <div class="col-sm-6" style="background-color: yellow;">
+            <img src="extensions/images/pic2.jpg" id="profile-picture">
+        </div>
+      
+        <div class="col-sm-6 col-right" style="background-color: #222222;">
+
+            <div class="about-me-div text-uppercase mb-4">
+                <p class="about-me-title fw-bold" style="font-size: 18px;">About Me</p>
+                <span class="name lh-1" style="letter-spacing: 5px">PENN</span> <br>
+                <span class="name lh-1" style="letter-spacing: 5px">BADGLEY</span>
+            </div>
+
+            <div class="profile-content">
+                <p>Lorem ipsum dolor sit amet, <span class="fw-bold"> consectetur </span>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <span class="fw-bold"> <u> laboris nisi ut aliquip ex ea commodo consequat. </u></span></p>
+
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud <span class="fw-bold"> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
+
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p><span class="fw-bold"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </span></p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="video-profile">
+        <button type="button" class="img-btn" data-bs-toggle="modal" data-bs-target="#modal1">
+            <img src="extensions/images/pic3.JPG" id="img-vid">
+        </button>
+
+        <p class="video-profile-name">MEET PENN</p>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-white"  data-bs-toggle="modal" data-bs-target="#modal1">
+            <i class="bi bi-play-circle"></i><span class="underline-txt"> Play Video</span>
+        </button>
+    </div>
+
+    
+    <div class="skills-section" id="skills-section">
+        <img src="extensions/images/pic4.JPG" alt="" srcset="">
+        
+        <p class="skills-title">MY SKILLS</p>
+
+        <p class="skills-desc mt-5">
+            <span class="gray-bg"> 
+                In years of experience I was able to <span class="yellow-bg">enhance and develop other important skills</span> to implement them for my client's social media platform, If you hire me as your editor, you will not only hire me as your video editor but I can also do your other creative contents and marketing like shown below... 
+            </span> 
+        </p>
+
+        <div class="row skills-set mt-5">
+            <div class="col-4 skill-number">1
+                <div class="skill-text">Video Editing</div>
+            </div>
+
+            <div class="col-4 skill-number">2
+                <div class="skill-text">Graphic Design</div>
+            </div>
+
+            <div class="col-4 skill-number">3
+                <div class="skill-text">Social Media Marketing</div>
+            </div>
+
+            <div class="col-4 skill-number">4
+                <div class="skill-text">Copy Writing</div>
+            </div>
+
+            <div class="col-4 skill-number">5
+                <div class="skill-text">Social Media Advertising</div>
+            </div>
+
+            <div class="col-4 skill-number">6
+                <div class="skill-text">Website Design and Creation</div>
+            </div> 
+        </div>
+
+        <center>
+            <a href="#" class="button btn-sample-works mt-5">SAMPLE WORKS</a>
+        </center>
+    </div>
+
+    <div class="video-reel">
+        <button type="button" class="img-btn" data-bs-toggle="modal" data-bs-target="#modal2">
+            <img src="extensions/images/pic5.JPG" id="img-vid">
+        </button>
+
+        <p class="video-profile-name">SHOW REEL</p>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-white"  data-bs-toggle="modal" data-bs-target="#modal2">
+            <i class="bi bi-play-circle"></i><span class="underline-txt"> Play Video</span>
+        </button>
+    </div>
+
+    <div class="sample-works-section" id="sample-works-section" style="background-image: url(extensions/images/pic6.jpg)";> 
+        <div class="col-sm-6"> </div>
+      
+        <div class="col-sm-6 drive-link" style="background-color: #222222; float: right;">
+            <div class="container mt-5 mb-5">
+                <p class="check" style="color: #FBFF00;">Check my sample <br>works via <br>Google Drive</p>
+
+                <p class="drive-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, <span class="fw-bold">sed do eiusmod tempor</span> incididunt ut labore et dolore magna aliqua. Cursus mattis molestie a iaculis at erat pellentesque adipiscing. Vestibulum lectus mauris ultrices eros in cursus turpis massa.Posuere urna nec tincidunt praesent semper feugiat nibh sed pulvinar. 
+                </p>
+            </div>
+            
+            <a href="#" class=" btn button btn-view-more">VIEW MORE WORKS</a>
+
+
+        </div>
+    </div>
+
+    <div class="contact-section" id="contact-section">
+        <div class="container mt-4 mb-5">
+          <p class="contact" style="color: #FFF;">Contact me and <span style="color: #FBFF00;">let's grow</span> your brand!</p>
+        </div>
+
+        <p class="contact-info"><span class="via">Email:</span> penn.badgley@gmail.com</p>
+        <p class="contact-info"><span class="via">Skype ID:</span> live:.cid.aa11aa1aa1aa11a1</p>
+        <p class="contact-info"><span class="via">Telegram:</span> @pennbadgley</p>
+        <p class="contact-info"><span class="via">Whatsapp:</span> +63 9111112222</p>
+        <p class="rate via mt-5" style="color: #FFF;">$8 per hour</p>
+
+    </div>
+
+    <div class="footer-section">
+        <div class="container">    
+            <center>
+                <span>© 2022 by Penn Badgley</span>
+            </center>
+        </div>
+    </div>
+
+
+    <!-- modal for video profile -->
+    <div class="modal fade" id="modal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-fullscreen">
+            <div class="modal-content">
+                
+                <div class="modal-body" style="border-style: none;">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFF; border-style: none; float:right;"></button>
+                    <video width="500" autoplay controls>
+                        <source src="extensions/videos/vid1.mp4" type="video/mp4">
+                        <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        <source src="http://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                    </video>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- modal for video reel -->
+    <div class="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-fullscreen">
+            <div class="modal-content">
+                
+                <div class="modal-body" style="border-style: none;">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #FFF; border-style: none; float:right;"></button>
+                    <video width="500" autoplay controls>
+                        <!-- <source src="extensions/videos/vid1.mp4" type="video/mp4"> -->
+                        <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        <source src="http://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                    </video>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="extensions/wow.js/src/WOW.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    
+    <script>
+
+        $(document).ready(function(){
+        //top nav
+            $(window).scroll(function () {
+                var y = $(this).scrollTop();
+                $('.link').each(function (event) {
+                    if (y >= $($(this).attr('href')).offset().top - 200) {
+                        $('.link').not(this).removeClass('bi-circle-fill');
+                        $('.link').addClass('bi-circle');
+
+                        $(this).addClass('bi-circle-fill');
+                        $(this).removeClass('bi-circle');
+                    }
+                });
+            });
+
+        //side nav
+            $(window).scroll(function () {
+                var y = $(this).scrollTop();
+                $('.link').each(function (event) {
+                    if (y >= $($(this).attr('href')).offset().top - 200) {
+                        $('.link').not(this).removeClass('bi-circle-fill');
+                        $('.link').addClass('bi-circle');
+
+                        $(this).addClass('bi-circle-fill');
+                        $(this).removeClass('bi-circle');
+                    }
+                });
+            });
+
+            
+        
+        //back to top
+            $(window).scroll(function(){
+              if($(window).scrollTop() > 300){
+                $('#backToTop').addClass('show');
+              }else{
+                $('#backToTop').removeClass('show');
+              }
+            });
+            
+            $('#backToTop').click(function(e){
+              e.preventDefault();
+              $('html,body').animate({scrollTop:0}, 500, 'easeInOutExpo');
+              return false;
+            });
+        
+        //get started
+            $('.get-btn').click(function(e){
+              e.preventDefault();
+              $('html, body').animate({scrollTop: ($('#row-profile').offset().top)},100,'easeInOutExpo');
+              return false;
+            });
+
+        });
+
+    </script>
+
+
+    <script src="extensions/easing/easing.min.js"></script>
+
+</body>
+</html>
+
